@@ -1,0 +1,26 @@
+= adição
+- subtração 
+* Multiplicação
+/ Divisão Real
+% Módulo (Resto da divisão)
+** Exponenciação
+
+/////////////////////////////////////
+
+Ordem de precedencia: 
+
+**
+* / %
++ - 
+
+/////////////////////////////////////
+
+ceil() = Arredonda para cima
+floor() = Arredonda para baixo
+round() = Arredonda padão
+hypot() = calcula os catetos da hipotenusa 
+intdiv() = divisão inteira
+min() = Mostra o valor minimo de uma sequencia de numeros
+max() = Mostra o valor máximo de uma sequencia de numeros
+pi() M_PI = constate pi e fução pi
+srqr() = Raiz quadrada 
