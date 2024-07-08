@@ -4,26 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado</title>
+    <title>Analisa Número Real</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <header>
-        <h1>Converor de Moedas v1.0</h1>
+        <h1>Numero real</h1>
     </header>
     <section>
         <main>
             <?php
-            $real = $_GET["valorReal"] ;
-            $cambio = 5.48;
-            $dolar = ($real / $cambio);
+            $numeroReal = $_POST["numeroReal"];
+    
+            $inteiro = (INT) $numeroReal;
+            $fracionaria = $numeroReal - $inteiro;
 
-            $padrao = numfmt_create("pt_BR", NumberFormatter::CURRENCY);
-            
-
-            echo "Seus " . numfmt_format_currency($padrao, $real, "BRL") . " equivalem a " . numfmt_format_currency($padrao, $dolar, "USD");
+            echo "Analisado o número ". number_format($numeroReal, 3, ",", ".") ." informado pelo usuário: <br
+            <ol>
+                <li>A parte inteira do número é $inteiro</li>
+                <li>A parte fracionaria do número é " . number_format($fracionaria, 3) ." </li>
+            </ol>" 
             ?>
             <p><a href="javascript:history.go(-1)">Voltar para a página anterior</a></p>
         </main>
