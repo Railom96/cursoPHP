@@ -11,19 +11,20 @@
 <body>
 
     <header>
-        <h1>Converor de Moedas v1.0</h1>
+        <h1>Convesor de Moedas v2.0</h1>
     </header>
     <section>
         <main>
             <?php
-            $real = $_GET["valorReal"] ;
-            $cambio = 5.48;
-            $dolar = ($real / $cambio);
+            $url = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@dataInicial=&@dataFinalCotacao=&$top=1&$orderby=dataHoraCotacao%20desc&$format=json&$select=cotacaoCompra,cotacaoVenda,dataHoraCotacao';
 
-            $padrao = numfmt_create("pt_BR", NumberFormatter::CURRENCY);
-            
+            $dados = json_decode(file_get_contents($url), true);
 
-            echo "Seus " . numfmt_format_currency($padrao, $real, "BRL") . " equivalem a " . numfmt_format_currency($padrao, $dolar, "USD");
+            var_dump($dados);
+
+
+
+            echo  $dados["value"][0]["dataHoraCotacao"]
             ?>
             <p><a href="javascript:history.go(-1)">Voltar para a página anterior</a></p>
         </main>
