@@ -2,13 +2,15 @@
 
 require_once "config.conf";
 
+
+
 // Função para buscar dados do web service com autenticação basic auth
 function buscarDados()
 {
 	$curl = curl_init( $GLOBALS ['url'] );
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-	curl_setopt($curl, CURLOPT_USERPWD, "$GLOBALS ['username']:$GLOBALS ['password']");
+	curl_setopt($curl, CURLOPT_USERPWD, $GLOBALS ['username']. ':' . $GLOBALS ['password']);
 	
 	$response = curl_exec($curl);
 	
@@ -22,7 +24,7 @@ function buscarDados()
 }
 
 // Buscar dados do web service
-$jsonData = buscarDados( $GLOBALS ['url'],$GLOBALS ['username'],$GLOBALS ['password'] );
+$jsonData = buscarDados();
 
 // Decodificar JSON
 $data = json_decode($jsonData, true);
